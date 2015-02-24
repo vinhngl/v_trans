@@ -6,3 +6,4 @@ module VTrans
     TranslateApi.new(text, from_lang, to_lang, api_key).translate
   end
 end
+

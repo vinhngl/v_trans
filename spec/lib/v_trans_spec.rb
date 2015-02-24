@@ -17,3 +17,4 @@ describe VTrans do
     expect(translated_text).to eq("xin chào tất cả mọi người")
   end
 end
+

@@ -1,5 +1,7 @@
 # VTrans
 
+[![Build Status](https://travis-ci.org/vinhnguyenleasnet/v_trans.svg?branch=master)](https://travis-ci.org/vinhnguyenleasnet/v_trans)
+
 Translate the text from one language to another language.
 
 ## Installation

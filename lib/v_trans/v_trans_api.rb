@@ -36,7 +36,7 @@ module VTrans
       full_url = URI.encode(GOOGLE_TRANSLATE_SERVICE_URL + "?key=#{api_key}&source=#{from_lang}&target=#{to_lang}&q=#{text}")
 
       RestClient.get(full_url){ |response|
-        if response.code == 200 
+        if response.code == 200
           res = response.body
           return res
         else
@@ -47,3 +47,4 @@ module VTrans
 
   end
 end
+
