@@ -28,7 +28,7 @@ Please read the links:
 
 ```ruby
   $ require 'v_trans'
-  $ VTrans("Hello everyone!", "en", "es", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo")
+  $ VTrans.translate("Hello everyone!", "en", "es", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo")
   # "hola a todos!"
 ```
 
