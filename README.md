@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-Please read the link: [Create the Google Translate API Key](http://support.smartling.com/hc/en-us/articles/203237753-How-can-I-create-a-Google-Translate-API-Key-)
+Please read the links:
+- [Create the Google Translate API Key](http://support.smartling.com/hc/en-us/articles/203237753-How-can-I-create-a-Google-Translate-API-Key-)
+- [Languages Code](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ```ruby
   $ require 'v_trans'
