@@ -8,6 +8,10 @@ describe VTrans do
     expect { VTrans.translate("hello", "en", "vi", nil) }.to raise_error
   end
 
+  it "should raise an error if the language code is wrong" do
+    expect { VTrans.translate("hello", "en", "vn", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo") }.to raise_error
+  end
+
   it "should translate the text from one language to another language." do
     translated_text = VTrans.translate("hello", "en", "vi", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo")
     expect(translated_text).to eq("xin chào")
