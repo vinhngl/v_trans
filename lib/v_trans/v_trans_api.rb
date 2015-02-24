@@ -13,24 +13,36 @@ module VTrans
     end
 
     def translate
-      raise ("Missing 'from' language") unless @from_lang
-      raise ("Missing 'to' language") unless @to_lang
-      raise ("Missing 'text' for translation") unless @text
-      raise ("Missing 'api key' for the serice") unless @api_key
+      raise("Missing 'from' language") unless @from_lang
+      raise("Missing 'to' language") unless @to_lang
+      raise("Missing 'text' for translation") unless @text
+      raise("Missing 'api key' for the serice") unless @api_key
 
       translated = trans_service @text, @from_lang, @to_lang, @api_key
 
-      raise ("The server is down") unless translated || translated.empty?
+      if translated
+        body = JSON.parse(translated)["data"]["translations"].pop
+        result = body["translatedText"]
+      else
+        raise("The server have problem. Please try again!")
+      end
 
-      translated
+      return result
     end
 
     private
 
     def trans_service text, from_lang, to_lang, api_key
-      res = RestClient.get("https://www.googleapis.com/language/translate/v2?key=#{api_key}&source=#{from_lang}&target=#{to_lang}&q=#{text}")
+      full_url = GOOGLE_TRANSLATE_SERVICE_URL + "?key=#{api_key}&source=#{from_lang}&target=#{to_lang}&q=#{text}"
 
-      return JSON.parse(res)["data"]["translations"].first["translatedText"]
+      RestClient.get(full_url){ |response|
+        if response.code == 200 
+          res = response.body
+          return res
+        else
+          nil
+        end
+      }
     end
 
   end
