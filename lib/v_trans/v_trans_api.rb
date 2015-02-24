@@ -33,7 +33,7 @@ module VTrans
     private
 
     def trans_service text, from_lang, to_lang, api_key
-      full_url = GOOGLE_TRANSLATE_SERVICE_URL + "?key=#{api_key}&source=#{from_lang}&target=#{to_lang}&q=#{text}"
+      full_url = URI.encode(GOOGLE_TRANSLATE_SERVICE_URL + "?key=#{api_key}&source=#{from_lang}&target=#{to_lang}&q=#{text}")
 
       RestClient.get(full_url){ |response|
         if response.code == 200 

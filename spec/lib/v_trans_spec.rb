@@ -13,7 +13,7 @@ describe VTrans do
   end
 
   it "should translate the text from one language to another language." do
-    translated_text = VTrans.translate("hello", "en", "vi", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo")
-    expect(translated_text).to eq("xin chào")
+    translated_text = VTrans.translate("hello everyone", "en", "vi", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo")
+    expect(translated_text).to eq("xin chào tất cả mọi người")
   end
 end
