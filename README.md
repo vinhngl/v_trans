@@ -1,6 +1,6 @@
 # VTrans
 
-TODO: Write a gem description
+Translate the text from one language to another language.
 
 ## Installation
 
@@ -20,11 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Please read the link: [Create the Google Translate API Key](http://support.smartling.com/hc/en-us/articles/203237753-How-can-I-create-a-Google-Translate-API-Key-)
+
+```ruby
+  $ require 'v_trans'
+  $ VTrans("Hello everyone!", "en", "es", "AIzaSyCmt2Xnjn5In0RLu1MzF_KSOHlhlHUG9Vo")
+  # "hola a todos!"
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/v_trans/fork )
+1. Fork it ( https://github.com/[vinhnguyenleasnet/v_trans/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
