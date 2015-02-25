@@ -13,21 +13,23 @@ module VTrans
     end
 
     def translate
-      raise("Missing 'from' language") unless @from_lang
-      raise("Missing 'to' language") unless @to_lang
-      raise("Missing 'text' for translation") unless @text
-      raise("Missing 'api key' for the serice") unless @api_key
+      if @text && @from_lang && @to_lang && @api_key
+        translated = trans_service @text, @from_lang, @to_lang, @api_key
 
-      translated = trans_service @text, @from_lang, @to_lang, @api_key
+        if translated
+          body = JSON.parse(translated)["data"]["translations"].pop
+          result = body["translatedText"]
+        else
+          raise("Please check paramaters. Maybe you're wrong languages code or api key. Thanks")
+        end
 
-      if translated
-        body = JSON.parse(translated)["data"]["translations"].pop
-        result = body["translatedText"]
+        return result
       else
-        raise("The server have problem. Please try again!")
+        raise("Missing 'from' language") unless @from_lang
+        raise("Missing 'to' language") unless @to_lang
+        raise("Missing 'text' for translation") unless @text
+        raise("Missing 'api key' for the service") unless @api_key
       end
-
-      return result
     end
 
     private
